@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lakewood Schools Kitengela - Honouring God Through Excellence. Quality Christian-based education with 8-4-4 curriculum.">
+    <title>Lakewood Schools Kitengela - Honouring God Through Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-blue: #1a4b8c;
+            --color-light-blue: #e6f0fa;
+            --color-green: #2a6e3f;
+            --color-light-green: #edf7ef;
+            --color-gold: #d4af37;
+            --color-dark: #333333;
+            --color-light: #f8f9fa;
+            --color-white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-blue);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            opacity: 0;
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+            animation: expandLine 1s ease-out 0.5s forwards;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Enhanced Button Animations */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(26, 75, 140, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-blue);
+            color: var(--color-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-blue);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover {
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover::after {
+            left: 0;
+        }
+        
+        /* Header with floating animation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: bounceIn 1s ease-out;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--color-blue);
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: none;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            animation: fadeInRight 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        nav ul li:nth-child(8) { animation-delay: 0.8s; }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-blue), var(--color-gold));
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-blue);
+            background: rgba(26, 75, 140, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        nav ul li a:hover::before {
+            width: 80%;
+            left: 10%;
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(42, 110, 63, 0.6)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: var(--color-white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,100 100,0 200,50 300,20 400,80 500,40 600,70 700,10 800,60 900,30 1000,90 1000,100"/></svg>') repeat-x;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: heroTitle 1.2s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        /* Animated Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section Enhancements */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            animation: slideInFromRight 0.8s ease-out;
+            cursor: pointer;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 75, 140, 0.3), rgba(42, 110, 63, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+        
+        .about-image:hover::before {
+            opacity: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Enhanced Service Cards */
+        .services {
+            background: linear-gradient(135deg, var(--color-light) 0%, rgba(230, 240, 250, 0.5) 100%);
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff"/></svg>') no-repeat center/cover;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background: var(--color-white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 75, 140, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotateY(360deg);
+            color: var(--color-green);
+        }
+        
+        /* Facility Cards with Image Pop-ups */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .facility-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .facility-card:nth-child(1) { animation-delay: 0.2s; }
+        .facility-card:nth-child(2) { animation-delay: 0.4s; }
+        .facility-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .facility-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .facility-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .facility-image::before {
+            content: '\f065';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-size: 2rem;
+            background: rgba(26, 75, 140, 0.8);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            z-index: 3;
+            opacity: 0;
+        }
+        
+        .facility-card:hover .facility-image::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        .facility-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .facility-card:hover .facility-image::after {
+            opacity: 1;
+        }
+        
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+        
+        .facility-content {
+            padding: 25px;
+            background: var(--color-white);
+        }
+        
+        /* Enhanced Features with Icons */
+        .why-choose-us {
+            background: linear-gradient(135deg, var(--color-light-blue) 0%, rgba(230, 240, 250, 0.3) 100%);
+            position: relative;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            background: var(--color-white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            animation: fadeInLeft 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .feature-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            color: var(--color-green);
+            font-size: 2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            background: linear-gradient(45deg, var(--color-green), var(--color-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.3) rotate(10deg);
+        }
+        
+        /* Testimonial Cards with Hover Effects */
+        .testimonials {
+            background: linear-gradient(135deg, var(--color-light-green) 0%, rgba(237, 247, 239, 0.3) 100%);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            animation: bounceInUp 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--color-gold);
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Events with Date Animation */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .event-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            animation: flipInX 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .event-card:nth-child(1) { animation-delay: 0.1s; }
+        .event-card:nth-child(2) { animation-delay: 0.3s; }
+        .event-card:nth-child(3) { animation-delay: 0.5s; }
+        
+        .event-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .event-date {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: var(--color-white);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-date::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.1) 2px,
+                rgba(255,255,255,0.1) 4px
+            );
+            animation: shimmer 3s linear infinite;
+        }
+        
+        .event-date h3 {
+            color: var(--color-white);
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Enhanced CTA Section */
+        .cta {
+            background: linear-gradient(rgba(26, 75, 140, 0.9), rgba(42, 110, 63, 0.8)), url('https://images.unsplash.com/photo-1582573618381-c9a77c31f6b6?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: sweep 4s ease-in-out infinite;
+        }
+        
+        .cta h2 {
+            color: var(--color-white);
+        }
+        
+        /* Image Popup Modal */
+        .image-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .image-popup.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .popup-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .popup-content img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .popup-close:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes expandLine {
+            to {
+                width: 60px;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes heroTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bounceInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes flipInX {
+            0% {
+                opacity: 0;
+                transform: perspective(400px) rotateX(90deg);
+            }
+            40% {
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(400px) rotateX(0deg);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes sweep {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Menu Enhanced */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer Enhancements */
+        footer {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+            color: var(--color-white);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .footer-column:nth-child(1) { animation-delay: 0.1s; }
+        .footer-column:nth-child(2) { animation-delay: 0.3s; }
+        .footer-column:nth-child(3) { animation-delay: 0.5s; }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+            animation: expandLine 1s ease-out 0.5s forwards;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+            transition: transform 0.2s ease;
+        }
+        
+        .footer-column ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--color-gold);
+        }
+        
+        .contact-info {
+            color: #ccc;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-info p:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--color-gold);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            border-radius: 50%;
+            color: var(--color-white);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(26, 75, 140, 0.3);
+        }
+        
+        .social-links a:hover::before {
+            left: 100%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            animation: none;
+        }
+        
+        .scroll-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Enhanced Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loader-logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease-out;
+        }
+        
+        .loader-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: var(--color-green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            transform: translateX(400px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1500;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .floating-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 15px 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+                animation: slideDown 0.3s ease;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                animation: fadeInUp 0.3s ease forwards;
+                opacity: 0;
+            }
+            
+            nav ul li:nth-child(1) { animation-delay: 0.1s; }
+            nav ul li:nth-child(2) { animation-delay: 0.15s; }
+            nav ul li:nth-child(3) { animation-delay: 0.2s; }
+            nav ul li:nth-child(4) { animation-delay: 0.25s; }
+            nav ul li:nth-child(5) { animation-delay: 0.3s; }
+            nav ul li:nth-child(6) { animation-delay: 0.35s; }
+            nav ul li:nth-child(7) { animation-delay: 0.4s; }
+            nav ul li:nth-child(8) { animation-delay: 0.45s; }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .toast {
+                right: 15px;
+                left: 15px;
+                transform: translateY(-100px);
+            }
+            
+            .toast.show {
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card, .testimonial-card, .facility-card {
+                margin-bottom: 20px;
+            }
+            
+            .floating-actions {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">🏫</div>
+            <div class="loader-text">Lakewood Schools</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        Welcome to Lakewood Schools! 🎓
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Lakewood <span>Schools</span></h1>
+            </div>
+            <nav>
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="ADMISSION.HTML">Admissions</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#portals">Portals</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Honouring God Through Excellence</h1>
+            <p>Founded in 2010, Lakewood Schools delivers quality, Christian-based education guided by our motto "Honouring God Through Excellence." We foster each child's best in a tranquil and safe environment.</p>
+            <div class="hero-btns">
+                <a href="ADMISSION.HTML#apply" class="btn">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Our School</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Lakewood Schools (Komarock & Kitengela) delivers quality, Christian-based education (8-4-4 curriculum), guided by the motto "Honouring God Through Excellence." It fosters each child's best in a tranquil and safe environment.</p>
+                    <p>Founded in 2010, we have consistently provided excellent education that balances academic excellence with strong Christian values. Our dedicated teachers and staff work tirelessly to ensure every student reaches their full potential.</p>
+                    <a href="#admissions" class="btn" style="margin-top: 20px;">Join Our Community</a>
+                </div>
+                <div class="about-image" onclick="openImagePopup('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3')">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3" alt="Lakewood Schools Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Classes</h3>
+                    <p>Interactive virtual learning experiences with our qualified teachers using cutting-edge technology.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>In-person Classes</h3>
+                    <p>Traditional classroom learning in a safe and nurturing environment with personalized attention.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Well-stocked Library</h3>
+                    <p>Extensive physical and digital resources to support comprehensive learning and research.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Expert Teachers</h3>
+                    <p>Highly qualified and caring educators dedicated to nurturing student success and growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Facilities</h2>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card" onclick="openImagePopup('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3')">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3" alt="School Transport">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Transport Services</h3>
+                        <p>Safe and reliable transportation managed by our Transport Manager, Michael Mwiti, ensuring student safety.</p>
+                    </div>
+                </div>
+                <div class="facility-card" onclick="openImagePopup('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3')">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3" alt="Modern Classrooms">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Modern Classrooms</h3>
+                        <p>Spacious, well-equipped classrooms with smart boards and climate control designed for optimal learning.</p>
+                    </div>
+                </div>
+                <div class="facility-card" onclick="openImagePopup('https://images.unsplash.com/photo-1582582494705-f8ce0b0c24f0?ixlib=rb-4.0.3')">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1582582494705-f8ce0b0c24f0?ixlib=rb-4.0.3" alt="School Library">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Library Resources</h3>
+                        <p>Extensive collection of books, digital resources, and quiet study spaces for students of all ages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Lakewood Schools</h2>
+            </div>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Christian Values</h3>
+                        <p>We instill honesty, integrity, and discipline based on strong Christian principles and moral foundation.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Small Class Sizes</h3>
+                        <p>Personalized attention with low student-to-teacher ratios ensuring every child gets the support they need.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Academic Excellence</h3>
+                        <p>Exceptional performance in national examinations with consistent top rankings over the last 5 years.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Scholarships</h3>
+                        <p>Merit-based scholarship opportunities for top performers and talented students in various fields.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Students Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Lakewood Emerald is the best school ever. The teachers are caring and make learning fun. I've made so many friends and enjoy all the activities. Every day is an adventure!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p><strong>James Waweru</strong>, Grade 3</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"I transferred to Lakewood in Grade 5 and my grades have improved tremendously. The teachers give us individual attention and the facilities are amazing. I love coming to school!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p><strong>Sarah Muthoni</strong>, Grade 6</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The Christian values taught at Lakewood have made me a better person. I love how we start each day with prayer and devotion. It gives me strength and guidance."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p><strong>David Kimani</strong>, Grade 5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>Dec 15, 2024</h3>
+                    </div>
+                    <div class="event-content">
+                        <h3>Student Festival</h3>
+                        <p>Annual cultural and talent showcase featuring performances, art displays, and competitions from all grades.</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>Jan 20, 2025</h3>
+                    </div>
+                    <div class="event-content">
+                        <h3>Open Day</h3>
+                        <p>Prospective parents and students are invited to tour our facilities, meet staff, and experience our learning environment.</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>Mar 15, 2025</h3>
+                    </div>
+                    <div class="event-content">
+                        <h3>Graduation Ceremony</h3>
+                        <p>Celebrating the remarkable achievements of our graduating class with families and the entire school community.</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Begin Your Journey With Us</h2>
+            </div>
+            <p style="margin-bottom: 30px; font-size: 1.2rem;">Join the Lakewood family and give your child the gift of quality education rooted in Christian values and academic excellence.</p>
+            <a href="ADMISSION.HTML#apply" class="btn">Register Now - Save 20%</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lakewood Schools</h3>
+                    <p style="color: #ccc; margin-bottom: 20px;">Honouring God Through Excellence since 2010. Nurturing minds, building character, inspiring excellence.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#academics">Academics</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kitengela & Nairobi branches</p>
+                        <p><i class="fas fa-phone"></i> 0722 691 792</p>
+                        <p><i class="fas fa-envelope"></i> info@lakewoodschools.ac.ke</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM - 5PM, Sat: 8AM - 12PM</p>
+                        <p><i class="fas fa-globe"></i> www.lakewoodschools.ac.ke</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Lakewood Schools Kitengela. All Rights Reserved. | Designed with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Popup Modal -->
+    <div class="image-popup" id="imagePopup" onclick="closeImagePopup()">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <span class="popup-close" onclick="closeImagePopup()">&times;</span>
+            <img id="popupImage" src="" alt="Enlarged view">
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button class="floating-btn scroll-to-top" id="scrollToTop" onclick="scrollToTop()" title="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <a href="tel:0722691792" class="floating-btn" title="Call us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:info@lakewoodschools.ac.ke" class="floating-btn" title="Email us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hide');
+                showToast();
+            }, 2000);
+        });
+
+        // Toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            const icon = this.querySelector('i');
+            navMenu.classList.toggle('show');
+            
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('show');
+                const icon = document.querySelector('#mobile-menu-btn i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Image popup functionality
+        function openImagePopup(imageSrc) {
+            const popup = document.getElementById('imagePopup');
+            const popupImage = document.getElementById('popupImage');
+            
+            popupImage.src = imageSrc;
+            popup.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImagePopup() {
+            const popup = document.getElementById('imagePopup');
+            popup.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImagePopup();
+            }
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            btn.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(-1px) scale(1.01)';
+            });
+            
+            btn.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+        });
+
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(1deg)';
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'scale(1.2) rotateY(360deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Testimonial card interactions
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) rotate(-1deg)';
+                this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            });
+        });
+
+        // Feature item hover effects
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px) scale(1.02)';
+                const icon = this.querySelector('.feature-icon');
+                icon.style.transform = 'scale(1.3) rotate(10deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0) scale(1)';
+                const icon = this.querySelector('.feature-icon');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Event card hover effects
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.03)';
+                this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            });
+        });
+
+        // Facility card hover effects with image zoom
+        document.querySelectorAll('.facility-card').forEach(card => {
+            const image = card.querySelector('.facility-image img');
+            
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                image.style.transform = 'scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+                image.style.transform = 'scale(1)';
+            });
+        });
+
+        // Social media hover effects
+        document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+                this.style.boxShadow = '0 10px 20px rgba(26, 75, 140, 0.3)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Floating button pulse animation control
+        document.querySelectorAll('.floating-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add click feedback to all interactive elements
+        document.querySelectorAll('.btn, .service-card, .facility-card, .testimonial-card, .event-card, .feature-item').forEach(element => {
+            element.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Add loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Set initial state
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.9)';
+            img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Enhanced navigation active state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add active state CSS for navigation
+        const navStyle = document.createElement('style');
+        navStyle.textContent = `
+            nav ul li a.active {
+                color: var(--color-blue) !important;
+                background: rgba(26, 75, 140, 0.1) !important;
+                transform: translateY(-2px) !important;
+            }
+            
+            nav ul li a.active::before {
+                width: 80% !important;
+                left: 10% !important;
+            }
+        `;
+        document.head.appendChild(navStyle);
+
+        console.log('🎓 Lakewood Schools - Enhanced interactive website loaded successfully!');
+    </script>
+</body>
+</html>

@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Lakewood Schools Kitengela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-blue: #1a4b8c;
+            --color-light-blue: #e6f0fa;
+            --color-green: #2a6e3f;
+            --color-light-green: #edf7ef;
+            --color-gold: #d4af37;
+            --color-dark: #333333;
+            --color-light: #f8f9fa;
+            --color-white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-blue);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            opacity: 0;
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+            animation: expandLine 1s ease-out 0.5s forwards;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Enhanced Button Animations */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(26, 75, 140, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-blue);
+            color: var(--color-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-blue);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover {
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover::after {
+            left: 0;
+        }
+        
+        /* Header with floating animation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: bounceIn 1s ease-out;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--color-blue);
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: none;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            animation: fadeInRight 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        nav ul li:nth-child(8) { animation-delay: 0.8s; }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-blue), var(--color-gold));
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-blue);
+            background: rgba(26, 75, 140, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        nav ul li a:hover::before {
+            width: 80%;
+            left: 10%;
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(42, 110, 63, 0.6)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: var(--color-white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,100 100,0 200,50 300,20 400,80 500,40 600,70 700,10 800,60 900,30 1000,90 1000,100"/></svg>') repeat-x;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: heroTitle 1.2s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        /* Animated Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Enhanced Service Cards */
+        .services {
+            background: linear-gradient(135deg, var(--color-light) 0%, rgba(230, 240, 250, 0.5) 100%);
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,00,321.39,56.44Z" fill="%23ffffff"/></svg>') no-repeat center/cover;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background: var(--color-white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 75, 140, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotateY(360deg);
+            color: var(--color-green);
+        }
+        
+        /* Facility Cards with Image Pop-ups */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .facility-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .facility-card:nth-child(1) { animation-delay: 0.2s; }
+        .facility-card:nth-child(2) { animation-delay: 0.4s; }
+        .facility-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .facility-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .facility-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .facility-image::before {
+            content: '\f065';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-size: 2rem;
+            background: rgba(26, 75, 140, 0.8);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            z-index: 3;
+            opacity: 0;
+        }
+        
+        .facility-card:hover .facility-image::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        .facility-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .facility-card:hover .facility-image::after {
+            opacity: 1;
+        }
+        
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+        
+        .facility-content {
+            padding: 25px;
+            background: var(--color-white);
+        }
+        
+        /* Enhanced Features with Icons */
+        .why-choose-us {
+            background: linear-gradient(135deg, var(--color-light-blue) 0%, rgba(230, 240, 250, 0.3) 100%);
+            position: relative;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            background: var(--color-white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            animation: fadeInLeft 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .feature-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            color: var(--color-green);
+            font-size: 2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            background: linear-gradient(45deg, var(--color-green), var(--color-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.3) rotate(10deg);
+        }
+        
+        /* Testimonial Cards with Hover Effects */
+        .testimonials {
+            background: linear-gradient(135deg, var(--color-light-green) 0%, rgba(237, 247, 239, 0.3) 100%);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            animation: bounceInUp 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--color-gold);
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Admissions Process */
+        .admissions-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+        
+        .process-step {
+            background: var(--color-white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .process-step:nth-child(1) { animation-delay: 0.1s; }
+        .process-step:nth-child(2) { animation-delay: 0.2s; }
+        .process-step:nth-child(3) { animation-delay: 0.3s; }
+        .process-step:nth-child(4) { animation-delay: 0.4s; }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 75, 140, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .process-step:hover::before {
+            left: 100%;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: var(--color-white);
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 25px;
+            transition: all 0.4s ease;
+        }
+        
+        .process-step:hover .step-number {
+            transform: scale(1.2) rotateY(360deg);
+        }
+        
+        /* Requirements Section */
+        .requirements {
+            background: linear-gradient(135deg, var(--color-light-blue) 0%, rgba(230, 240, 250, 0.3) 100%);
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .requirement-card {
+            background: var(--color-white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            animation: bounceInUp 0.8s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .requirement-card:nth-child(1) { animation-delay: 0.2s; }
+        .requirement-card:nth-child(2) { animation-delay: 0.4s; }
+        .requirement-card:nth-child(3) { animation-delay: 0.6s; }
+        .requirement-card:nth-child(4) { animation-delay: 0.8s; }
+        
+        .requirement-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .requirement-icon {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .requirement-card:hover .requirement-icon {
+            transform: scale(1.2) rotateY(360deg);
+            color: var(--color-green);
+        }
+        
+        /* Fee Structure */
+        .fee-structure {
+            margin: 50px 0;
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .fee-table th, .fee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fee-table th {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: var(--color-white);
+        }
+        
+        .fee-table tr:nth-child(even) {
+            background-color: var(--color-light);
+        }
+        
+        .fee-table tr:hover {
+            background-color: var(--color-light-blue);
+        }
+        
+        .discount-banner {
+            background: linear-gradient(45deg, var(--color-green), var(--color-blue));
+            color: var(--color-white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+        
+        /* Download Cards */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+        
+        .download-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .download-card:nth-child(1) { animation-delay: 0.1s; }
+        .download-card:nth-child(2) { animation-delay: 0.2s; }
+        .download-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 75, 140, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .download-card:hover::before {
+            left: 100%;
+        }
+        
+        .download-icon {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .download-card:hover .download-icon {
+            transform: scale(1.2) rotateY(360deg);
+            color: var(--color-green);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: var(--color-white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--color-blue);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px rgba(26, 75, 140, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Enhanced CTA Section */
+        .cta {
+            background: linear-gradient(rgba(26, 75, 140, 0.9), rgba(42, 110, 63, 0.8)), url('https://images.unsplash.com/photo-1582573618381-c9a77c31f6b6?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: sweep 4s ease-in-out infinite;
+        }
+        
+        .cta h2 {
+            color: var(--color-white);
+        }
+        
+        /* Footer Enhancements */
+        footer {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+            color: var(--color-white);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .footer-column:nth-child(1) { animation-delay: 0.1s; }
+        .footer-column:nth-child(2) { animation-delay: 0.3s; }
+        .footer-column:nth-child(3) { animation-delay: 0.5s; }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+            animation: expandLine 1s ease-out 0.5s forwards;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+            transition: transform 0.2s ease;
+        }
+        
+        .footer-column ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--color-gold);
+        }
+        
+        .contact-info {
+            color: #ccc;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-info p:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--color-gold);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            border-radius: 50%;
+            color: var(--color-white);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(26, 75, 140, 0.3);
+        }
+        
+        .social-links a:hover::before {
+            left: 100%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            animation: none;
+        }
+        
+        .scroll-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes expandLine {
+            to {
+                width: 60px;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes heroTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bounceInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes flipInX {
+            0% {
+                opacity: 0;
+                transform: perspective(400px) rotateX(90deg);
+            }
+            40% {
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(400px) rotateX(0deg);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes sweep {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .admissions-process, .requirements-grid, .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .floating-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 15px 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+                animation: slideDown 0.3s ease;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                animation: fadeInUp 0.3s ease forwards;
+                opacity: 0;
+            }
+            
+            nav ul li:nth-child(1) { animation-delay: 0.1s; }
+            nav ul li:nth-child(2) { animation-delay: 0.15s; }
+            nav ul li:nth-child(3) { animation-delay: 0.2s; }
+            nav ul li:nth-child(4) { animation-delay: 0.25s; }
+            nav ul li:nth-child(5) { animation-delay: 0.3s; }
+            nav ul li:nth-child(6) { animation-delay: 0.35s; }
+            nav ul li:nth-child(7) { animation-delay: 0.4s; }
+            nav ul li:nth-child(8) { animation-delay: 0.45s; }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .process-step, .requirement-card, .download-card {
+                margin-bottom: 20px;
+            }
+            
+            .floating-actions {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Lakewood <span>Schools</span></h1>
+            </div>
+            <nav>
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="INDEX.HTML">Home</a></li>
+                    <li><a href="INDEX.HTML#about">About Us</a></li>
+                    <li><a href="ADMISSION.HTML" class="active">Admissions</a></li>
+                    <li><a href="INDEX.HTML#facilities">Facilities</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="portals.html">Portals</a></li>
+                    <li><a href="INDEX.HTML#events">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Begin Your Journey With Us</h1>
+            <p>Join the Lakewood family and give your child the gift of quality education rooted in Christian values and academic excellence.</p>
+            <div class="hero-btns">
+                <a href="#process" class="btn">View Admission Process</a>
+                <a href="#apply" class="btn btn-secondary">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Process -->
+    <section id="process" class="animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Admission Process</h2>
+                <p>Our straightforward process makes it easy to join the Lakewood family</p>
+            </div>
+            <div class="admissions-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Inquiry</h3>
+                    <p>Contact our admissions office or visit our campus to learn more about our programs and facilities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Application</h3>
+                    <p>Complete the application form and submit all required documents.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Assessment</h3>
+                    <p>Students may be assessed to determine appropriate grade placement.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Acceptance</h3>
+                    <p>Successful applicants will receive an admission letter and joining instructions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Admission Requirements</h2>
+                <p>What you need to prepare for the application process</p>
+            </div>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Application Form</h3>
+                    <p>Duly filled application form available from the admissions office or downloadable from our website.</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Birth Certificate</h3>
+                    <p>Copy of the student's birth certificate for age verification.</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-portrait"></i>
+                    </div>
+                    <h3>Passport Photos</h3>
+                    <p>Two recent passport-sized photographs of the student.</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Medical Records</h3>
+                    <p>Copy of immunization records and any relevant medical information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee Structure -->
+    <section class="animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fee Structure</h2>
+                <p>Transparent and competitive fees with flexible payment options</p>
+            </div>
+            
+            <div class="discount-banner">
+                <h3>Special Offer: Register Now & Save 20%!</h3>
+                <p>Early registration discount available for limited time. Contact our admissions office for details.</p>
+            </div>
+            
+            <div class="fee-structure">
+                <h3>Primary School Fees (Per Term)</h3>
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Grade</th>
+                            <th>Tuition</th>
+                            <th>Boarding (Optional)</th>
+                            <th>Development Fee</th>
+                            <th>Total (Day)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Grade 1-3</td>
+                            <td>KSh 25,000</td>
+                            <td>KSh 35,000</td>
+                            <td>KSh 5,000</td>
+                            <td>KSh 30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 4-6</td>
+                            <td>KSh 28,000</td>
+                            <td>KSh 35,000</td>
+                            <td>KSh 5,000</td>
+                            <td>KSh 33,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 7-8</td>
+                            <td>KSh 32,000</td>
+                            <td>KSh 35,000</td>
+                            <td>KSh 5,000</td>
+                            <td>KSh 37,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p style="margin-top: 20px; font-style: italic;">Note: Fees are subject to change. Additional charges may apply for extracurricular activities, trips, and specialized programs.</p>
+            </div>
+            
+            <div class="fee-structure" style="margin-top: 50px;">
+                <h3>Payment Options</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-card">
+                        <h3>Full Payment</h3>
+                        <p>Pay the entire term's fees upfront and receive a 5% discount.</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3>Installment Plan</h3>
+                        <p>Spread payments over the term with our flexible installment plan.</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3>Scholarships</h3>
+                        <p>Merit-based scholarships available for exceptional students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="services animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Download Resources</h2>
+                <p>Access all the necessary documents for the admission process</p>
+            </div>
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Fee Structure</h3>
+                    <p>Complete detailed fee structure for all grades and programs.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Download PDF</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Application Form</h3>
+                    <p>Printable application form that you can fill out and submit.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Download Form</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>School Prospectus</h3>
+                    <p>Comprehensive guide about our school, programs, and facilities.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Download Prospectus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="requirements animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Apply Now</h2>
+                <p>Begin your application process by filling out the form below</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="admissionForm">
+                    <div class="form-group">
+                        <label for="studentName">Student's Full Name *</label>
+                        <input type="text" id="studentName" name="studentName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">Grade Applying For *</label>
+                        <select id="grade" name="grade" required>
+                            <option value="">Select Grade</option>
+                            <option value="1">Grade 1</option>
+                            <option value="2">Grade 2</option>
+                            <option value="3">Grade 3</option>
+                            <option value="4">Grade 4</option>
+                            <option value="5">Grade 5</option>
+                            <option value="6">Grade 6</option>
+                            <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parentName">Parent/Guardian Name *</label>
+                        <input type="text" id="parentName" name="parentName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="brochure">
+                            <input type="checkbox" id="brochure" name="brochure">
+                            Please send me a prospectus and brochure
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta animate-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Have Questions?</h2>
+            </div>
+            <p style="margin-bottom: 30px; font-size: 1.2rem;">Our admissions team is ready to assist you with any questions about the process, fees, or requirements.</p>
+            <a href="contact.html" class="btn">Contact Admissions Office</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lakewood Schools</h3>
+                    <p style="color: #ccc; margin-bottom: 20px;">Honouring God Through Excellence since 2010. Nurturing minds, building character, inspiring excellence.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kitengela & Nairobi branches</p>
+                        <p><i class="fas fa-phone"></i> 0722 691 792</p>
+                        <p><i class="fas fa-envelope"></i> info@lakewoodschools.ac.ke</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM - 5PM, Sat: 8AM - 12PM</p>
+                        <p><i class="fas fa-globe"></i> www.lakewoodschools.ac.ke</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Lakewood Schools Kitengela. All Rights Reserved. | Designed with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button class="floating-btn scroll-to-top" id="scrollToTop" onclick="scrollToTop()" title="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <a href="tel:0722691792" class="floating-btn" title="Call us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:info@lakewoodschools.ac.ke" class="floating-btn" title="Email us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            const icon = this.querySelector('i');
+            navMenu.classList.toggle('show');
+            
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('show');
+                const icon = document.querySelector('#mobile-menu-btn i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Form submission
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            btn.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(-1px) scale(1.01)';
+            });
+            
+            btn.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+        });
+
+        // Service card hover effects
+        document.querySelectorAll('.process-step, .requirement-card, .download-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(1deg)';
+                const icon = this.querySelector('.requirement-icon, .download-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2) rotateY(360deg)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+                const icon = this.querySelector('.requirement-icon, .download-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotateY(0deg)';
+                }
+            });
+        });
+
+        // Dynamic header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        console.log('🎓 Lakewood Schools Admissions Page - Enhanced interactive page loaded successfully!');
+    </script>
+</body>
+</html>
